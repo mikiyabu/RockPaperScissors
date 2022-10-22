@@ -1,8 +1,33 @@
-const rock = 'rock';
-const paper = 'paper';
-const scissors = "scissors";
 let PlayerWins = 0;
 let computerWins = 0;
+
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const h1 = document.querySelector('h1');
+const p2 = document.querySelector('.score');
+
+rock.addEventListener('click', () => {
+    let playerSelection = 'rock';
+    playRound(playerSelection, getComputerChoice());
+});
+
+paper.addEventListener('click', () => {
+    let playerSelection = 'paper';
+    playRound(playerSelection, getComputerChoice());
+});
+
+scissors.addEventListener('click', () => {
+    let playerSelection = 'scissors';
+    playRound(playerSelection, getComputerChoice());
+});
+
+function game() {
+    while (PlayerWins < 3 && computerWins < 3) {
+        playRound(playerSelection, getComputerChoice());
+    }
+}
+
 
 function getComputerChoice() {
     let num = Math.floor((Math.random()*3));
@@ -18,51 +43,39 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() === rock && computerSelection === rock) {
-        alert("Player: rock, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins);
+    if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'rock') {
+        p2.textContent(("Player " + PlayerWins + ", Computer: " + computerWins));
     }
-    else if (playerSelection.toLowerCase() === rock && computerSelection === paper) {
+    else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper') {
         computerWins++; 
-        alert("Player: rock, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins);
+        p2.textContent(("Player: rock, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins));
     }
-    else if (playerSelection.toLowerCase() === rock && computerSelection === scissors) {
+    else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') {
         PlayerWins++;
-        alert("Player: rock, Computer: scissors / Player: " + PlayerWins + ", Computer: " + computerWins);
+        p2.textContent(("Player: rock, Computer: scissors / Player: " + PlayerWins + ", Computer: " + computerWins));
     }
 
-    if (playerSelection.toLowerCase() === paper && computerSelection === rock) {
+    if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
         PlayerWins++;
-        alert("Player: paper, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins);
+        p2.textContent(("Player: paper, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins));
     }
-    else if (playerSelection.toLowerCase() === paper && computerSelection === paper) {
-        alert("Player: paper, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins);
+    else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'paper') {
+        p2.textContent(("Player: paper, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins));
     }
-    else if (playerSelection.toLowerCase() === paper && computerSelection === scissors) {
+    else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissors') {
         computerWins++;
-        alert('Player: paper, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins);
+        p2.textContent(('Player: paper, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins));
     }
 
-    if (playerSelection.toLowerCase() === scissors && computerSelection === rock) {
+    if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
         computerWins++;
-        alert('Player: scissors, Computer: rock / Player: ' + PlayerWins + ', Computer: ' + computerWins);
+        p2.textContent(('Player: scissors, Computer: rock / Player: ' + PlayerWins + ', Computer: ' + computerWins));
     }
-    else if (playerSelection.toLowerCase() === scissors && computerSelection === paper) {
+    else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
         PlayerWins++;
-        alert('Player: scissors, Computer: paper / Player: ' + PlayerWins + ', Computer: ' + computerWins);
+        p2.textContent(('Player: scissors, Computer: paper / Player: ' + PlayerWins + ', Computer: ' + computerWins));
     }
-    else if (playerSelection.toLowerCase() === scissors && computerSelection === scissors) {
-        alert('Player: scissors, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins);
+    else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'scissors') {
+        p2.textContent(('Player: scissors, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins));
     }
 }
-
-
-
-function game() {
-    while (PlayerWins < 3 && computerWins < 3) {
-        let playerSelection = prompt('Choose: rock, paper, or scissors');
-    
-        playRound(playerSelection, getComputerChoice());
-    }
-}
-
-game();
