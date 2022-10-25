@@ -1,11 +1,8 @@
-let PlayerWins = 0;
-let computerWins = 0;
-
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
-const h1 = document.querySelector('h1');
-const p2 = document.querySelector('.score');
+const botWins = document.querySelector('.botWins');
+const youWins = document.querySelector('.youWins');
 
 rock.addEventListener('click', () => {
     let playerSelection = 'rock';
@@ -43,39 +40,37 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'rock') {
-        p2.textContent(("Player " + PlayerWins + ", Computer: " + computerWins));
-    }
-    else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper') {
-        computerWins++; 
-        p2.textContent(("Player: rock, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins));
-    }
-    else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') {
-        PlayerWins++;
-        p2.textContent(("Player: rock, Computer: scissors / Player: " + PlayerWins + ", Computer: " + computerWins));
-    }
+    if (PlayerWins < 3 && computerWins < 3) {
+            
+        if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) return;
+        else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper') {
+            botWins++;
+            return botWins.textContent(botWins);
+        }
+        else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') {
+            youWins++;
+            youWins.textContent(youWins);
+        }
 
-    if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
-        PlayerWins++;
-        p2.textContent(("Player: paper, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins));
-    }
-    else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'paper') {
-        p2.textContent(("Player: paper, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins));
-    }
-    else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissors') {
-        computerWins++;
-        p2.textContent(('Player: paper, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins));
-    }
+        if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
+            youWins++;
+            youWins.textContent(youWins);
+        }
+        else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissors') {
+            botWins++;
+            botWins.textContent(botWins);
+        }
 
-    if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
-        computerWins++;
-        p2.textContent(('Player: scissors, Computer: rock / Player: ' + PlayerWins + ', Computer: ' + computerWins));
+        if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
+            botWins++;
+            botWins.textContent(botWins);
+        }
+        else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
+            youWins++;
+            youWins.textContent(youWins);
+        }
     }
-    else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
-        PlayerWins++;
-        p2.textContent(('Player: scissors, Computer: paper / Player: ' + PlayerWins + ', Computer: ' + computerWins));
-    }
-    else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'scissors') {
-        p2.textContent(('Player: scissors, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins));
+    else {
+        return;
     }
 }
