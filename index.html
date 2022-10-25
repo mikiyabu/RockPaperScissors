@@ -9,37 +9,54 @@
     <script src = "javascript.js" defer></script>
 </head>
 <body>
-        <div class = "hero">
-            <p>🪨 Rock Paper Scissors by Mikiya Vadney with TOP 🪨</p>
-        </div>
+    <div class = "hero">
+        <p>🪨 <strong>Rock Paper Scissors</strong> by Mikiya Vadney with TOP 🪨</p>
+    </div>
 
-        <div class = "header">
-            <h1>Choose Rock Paper or Scissors</h1>
-        </div>
-        <div class = "buttons">
-            <form>
-                <button>R</button>
-                <button>P</button>
-                <button>S</button>
-            </form>
-        </div>
-
-        <div class = "scoreBoard">
+        <div class = "content">
             <div class = "container">
-                <div class = "score">
-                    <p>You</p>
+                <div class = "howTo">
+                    <h1>How to play</h1>
                 </div>
-                <p class = "playerWins">0</p>
+                <p class = "howToPlay"><strong>Rock paper scissors</strong> is a classic game thats been played for countless generations across 
+                    the world thanks to it's ease if accessability and effectiveness at making decisions.<br><br>
+                To play, click <strong>'R', 'P', or 'S'</strong> to choose if you want to pick rock, paper, or scissors to play against the bot.
+                    Rock wins against scissors but loses to paper, paper wins against rock but loses to scissors, and scissors 
+                    wins against rock but loses against paper.<br><br> In the case where if you and the bot choose the same hand, <strong>neither you nor
+                the bot will recieve a point.</strong> <br><br> First to <strong>3 points</strong> wins!</p>     
             </div>
-            
-            <div class = "container">
-                <div class = "score">
-                    <p>Bot</p>
-                </div>
-                <p class = "computerWins">0</p>
-            </div>
-        </div>  
 
-        <footer class = "footer">🪨 This is a footer 🪨</footer>
+            <div class = "container">
+                <div class = "header">
+                    <h1>Choose Rock Paper or Scissors</h1>
+                </div>
+                <div class = "buttons">
+                    <form>
+                        <button class = "rock"><img src = "./pics/rock.png" alt = "R"></button>
+                        <button class = "paper"><img src = "./pics/paper.png" alt = "P"></button>
+                        <button class = "scissors"><img src = "./pics/scissors.png" alt = "S"></button>
+                    </form>
+                </div>
+    
+                <div class = "scoreBoard">
+                    <div class = "container">
+                        <div class = "score">
+                            <p>You</p>
+                        </div>
+                        <p class = "youWins">0</p>
+                    
+                    </div>
+                    <div class = "container">
+                        <div class = "score">
+                            <p>Bot</p>
+                        </div>
+                        <p class = "botWins">0</p>
+                    </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+    <footer class = "footer">🪨 This is a footer 🪨</footer>
 </body>
 </html>
