@@ -20,37 +20,40 @@
                 </div>
                 <p class = "howToPlay"><strong>Rock paper scissors</strong> is a classic game thats been played for countless generations across 
                     the world thanks to it's ease if accessability and effectiveness at making decisions.<br><br>
-                To play, click <strong>'R', 'P', or 'S'</strong> to choose if you want to pick rock, paper, or scissors to play against the bot.
+                To play, click <strong>the icons on the right</strong> to choose if you want to pick rock, paper, or scissors to play against the bot.
                     Rock wins against scissors but loses to paper, paper wins against rock but loses to scissors, and scissors 
-                    wins against rock but loses against paper.<br><br> In the case where if you and the bot choose the same hand, <strong>neither you nor
-                the bot will recieve a point.</strong> <br><br> First to <strong>3 points</strong> wins!</p>     
+                    wins against rock but loses against paper.<br><br> In the case where both you and the bot choose the same hand, <strong>neither you nor
+                the bot will recieve a point.</strong> <br><br> First to <strong>5 points</strong> has bragging rights over the other person.</p>     
             </div>
 
             <div class = "container">
-                <div class = "header">
-                    <h1>Choose Rock Paper or Scissors</h1>
-                </div>
+                <h1 id = "header">Choose Rock Paper or Scissors</h1>
+
                 <div class = "buttons">
                     <form>
-                        <button class = "rock"><img src = "./pics/rock.png" alt = "R"></button>
-                        <button class = "paper"><img src = "./pics/paper.png" alt = "P"></button>
-                        <button class = "scissors"><img src = "./pics/scissors.png" alt = "S"></button>
+                        <button class = "rock"><img src = "./pics/rock.png" id = "regRock" alt = "R"></button>
+                        <button class = "paper"><img src = "./pics/paper.png" id = "regPaper" alt = "P"></button>
+                        <button class = "scissors"><img src = "./pics/scissors.png" id = "regScissors" alt = "S"></button>
                     </form>
                 </div>
-    
+
+                <form class = "restart">
+
+                </form>
+
                 <div class = "scoreBoard">
                     <div class = "container">
                         <div class = "score">
-                            <p>You</p>
+                            <p class = "you">You</p>
                         </div>
-                        <p class = "youWins">0</p>
-                    
+                        <p class = "youWins"></p>
                     </div>
+
                     <div class = "container">
                         <div class = "score">
-                            <p>Bot</p>
+                            <p class = "bot">Bot</p>
                         </div>
-                        <p class = "botWins">0</p>
+                        <p class = "botWins"></p>
                     </div>
                     </div>  
                 </div>
