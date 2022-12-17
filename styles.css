@@ -54,11 +54,6 @@ button {
     transition: 120ms;
 }
 
-form {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 button:hover {
     transform: scale(1.1);
     background-color: #FFBABA;
@@ -70,7 +65,7 @@ button:hover {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 3px; 
     margin-bottom: 20px;
 }
 
@@ -78,6 +73,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: nowrap;
     flex-grow: 1;
     align-items: center;
     flex-shrink: 1;

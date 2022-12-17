@@ -83,11 +83,19 @@ scissors.addEventListener('click', () => {
     playRound(playerSelection, getComputerChoice());
 
     if (youCounter === 5) {
+<<<<<<< HEAD
         you.textContent = 'You win'; 
         restart.appendChild(playAgain);
     }
     else if (botCounter === 5) {
         bot.textContent = 'The bot wins';
+=======
+        you.textContent = 'You win! Booyah!'; 
+        restart.appendChild(playAgain);
+    }
+    else if (botCounter === 5) {
+        bot.textContent = 'The bot wins :(';
+>>>>>>> 6a68695212b479b12e2811102f344dc7d3731e13
         restart.appendChild(playAgain);
     }
 });
