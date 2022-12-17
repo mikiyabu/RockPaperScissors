@@ -5,9 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src = "javascript.js"></script>
+    <link rel = "stylesheet", href = "styles.css">
+    <script src = "javascript.js" defer></script>
 </head>
 <body>
-    
+    <div class = "hero">
+        <p>🪨 <strong>Rock Paper Scissors</strong> by Mikiya Vadney with TOP 🪨</p>
+    </div>
+
+        <div class = "content">
+            <div class = "container">
+                <div class = "howTo">
+                    <h1>How to play</h1>
+                </div>
+                <p class = "howToPlay"><strong>Rock paper scissors</strong> is a classic game thats been played for countless generations across 
+                    the world thanks to it's ease if accessability and effectiveness at making decisions.<br><br>
+                To play, click <strong>the icons on the right</strong> to choose if you want to pick rock, paper, or scissors to play against the bot.
+                    Rock wins against scissors but loses to paper, paper wins against rock but loses to scissors, and scissors 
+                    wins against rock but loses against paper.<br><br> In the case where both you and the bot choose the same hand, <strong>neither you nor
+                the bot will recieve a point.</strong> <br><br> First to <strong>5 points</strong> has bragging rights over the other person.</p>     
+            </div>
+
+            <div class = "container">
+                <h1 id = "header">Choose Rock Paper or Scissors</h1>
+
+                <div class = "buttons">
+                    <form>
+                        <button class = "rock"><img src = "./pics/rock.png" id = "regRock" alt = "R"></button>
+                        <button class = "paper"><img src = "./pics/paper.png" id = "regPaper" alt = "P"></button>
+                        <button class = "scissors"><img src = "./pics/scissors.png" id = "regScissors" alt = "S"></button>
+                    </form>
+                </div>
+
+                <form class = "restart">
+
+                </form>
+
+                <div class = "scoreBoard">
+                    <div class = "container">
+                        <div class = "score">
+                            <p class = "you">You</p>
+                        </div>
+                        <p class = "youWins"></p>
+                    </div>
+
+                    <div class = "container">
+                        <div class = "score">
+                            <p class = "bot">Bot</p>
+                        </div>
+                        <p class = "botWins"></p>
+                    </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+    <footer class = "footer">🪨 This is a footer 🪨</footer>
 </body>
 </html>

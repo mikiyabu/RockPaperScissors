@@ -1,68 +1,168 @@
-const rock = 'rock';
-const paper = 'paper';
-const scissors = "scissors";
-let PlayerWins = 0;
-let computerWins = 0;
+const form = document.querySelector('form');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const you = document.querySelector('.you');
+const bot = document.querySelector('.bot');
+const botWins = document.querySelector('.botWins');
+const youWins = document.querySelector('.youWins');
+const h1 = document.querySelector('#header');
+const restart = document.querySelector('.restart');
+
+const playAgain = document.createElement('button');
+playAgain.textContent = 'Play again?';
+playAgain.classList.add('.playAgain');
+
+const miniRock = document.createElement('img');
+miniRock.src = "./pics/rock.png";
+miniRock.style.height = '40px';
+const miniRock2 = document.createElement('img');
+miniRock2.src = "./pics/rock.png";
+miniRock2.style.height = '40px';
+
+const miniPaper = document.createElement('img');
+miniPaper.src = "./pics/paper.png";
+miniPaper.style.height = '40px';
+const miniPaper2 = document.createElement('img');
+miniPaper2.src = "./pics/paper.png";
+miniPaper2.style.height = '40px';
+
+const miniScissors = document.createElement('img');
+miniScissors.src = "./pics/scissors.png";
+miniScissors.style.height = '40px';
+const miniScissors2 = document.createElement('img');
+miniScissors2.src = "./pics/scissors.png";
+miniScissors2.style.height = '40px';
+
+let youCounter = 0;
+let botCounter = 0;
+
+youWins.textContent = youCounter;
+botWins.textContent = botCounter;
+
+you.textContent = 'You';
+bot.textContent = 'Bot';
+
+form.addEventListener('submit', preventDefault);
+
+playAgain.addEventListener('click', () => {
+    youCounter = 0;
+    botCounter = 0;
+});
+
+rock.addEventListener('click', () => {
+    let playerSelection = 'rock';
+    playRound(playerSelection, getComputerChoice());
+
+    if (youCounter === 5) {
+        you.textContent = 'You win! Booyah!'; 
+        restart.appendChild(playAgain);
+    }
+    else if (botCounter === 5) { 
+        bot.textContent = 'The bot wins :(';
+        restart.appendChild(playAgain);
+    }
+});
+
+paper.addEventListener('click', () => {
+    let playerSelection = 'paper';
+    playRound(playerSelection, getComputerChoice());
+
+    if (youCounter === 5) {
+        you.textContent = 'You win! Booyah!'; 
+        restart.appendChild(playAgain);
+    }
+    else if (botCounter === 5) {
+        bot.textContent = 'The bot wins :(';
+        restart.appendChild(playAgain);
+    }
+});
+
+scissors.addEventListener('click', () => {
+    let playerSelection = 'scissors';
+    playRound(playerSelection, getComputerChoice());
+
+    if (youCounter === 5) {
+        you.textContent = 'You win'; 
+        restart.appendChild(playAgain);
+    }
+    else if (botCounter === 5) {
+        bot.textContent = 'The bot wins';
+        restart.appendChild(playAgain);
+    }
+});
+
+function preventDefault(e) {
+    e.preventDefault();
+}
 
 function getComputerChoice() {
     let num = Math.floor((Math.random()*3));
     if (num === 0) {
-        return rock;
+        return 'rock';
     }
     else if (num === 1) {
-        return paper;
+        return 'paper';
     }
     else {
-        return scissors;
+        return 'scissors';
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() === rock && computerSelection === rock) {
-        alert("Player: rock, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === rock && computerSelection === paper) {
-        computerWins++; 
-        alert("Player: rock, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === rock && computerSelection === scissors) {
-        PlayerWins++;
-        alert("Player: rock, Computer: scissors / Player: " + PlayerWins + ", Computer: " + computerWins);
-    }
-
-    if (playerSelection.toLowerCase() === paper && computerSelection === rock) {
-        PlayerWins++;
-        alert("Player: paper, Computer: rock / Player: " + PlayerWins + ", Computer: " + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === paper && computerSelection === paper) {
-        alert("Player: paper, Computer: paper / Player: " + PlayerWins + ", Computer: " + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === paper && computerSelection === scissors) {
-        computerWins++;
-        alert('Player: paper, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins);
-    }
-
-    if (playerSelection.toLowerCase() === scissors && computerSelection === rock) {
-        computerWins++;
-        alert('Player: scissors, Computer: rock / Player: ' + PlayerWins + ', Computer: ' + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === scissors && computerSelection === paper) {
-        PlayerWins++;
-        alert('Player: scissors, Computer: paper / Player: ' + PlayerWins + ', Computer: ' + computerWins);
-    }
-    else if (playerSelection.toLowerCase() === scissors && computerSelection === scissors) {
-        alert('Player: scissors, Computer: scissors / Player: ' + PlayerWins + ', Computer: ' + computerWins);
-    }
-}
-
-
-
-function game() {
-    while (PlayerWins < 3 && computerWins < 3) {
-        let playerSelection = prompt('Choose: rock, paper, or scissors');
+    you.textContent = 'You: ';
+    bot.textContent = 'Bot: ';
     
-        playRound(playerSelection, getComputerChoice());
+    if (youCounter != 5 && botCounter != 5) {
+        if (playerSelection === 'rock' && computerSelection === 'rock') {
+            you.appendChild(miniRock);
+            bot.appendChild(miniRock2);
+        }
+        else if (playerSelection === 'rock' && computerSelection === 'paper') {
+            botCounter++;
+            botWins.textContent = botCounter;
+            you.appendChild(miniRock);
+            bot.appendChild(miniPaper);
+        }
+        else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+            youCounter++;
+            youWins.textContent = youCounter;
+            you.appendChild(miniRock);
+            bot.appendChild(miniScissors);
+        }
+
+        if (playerSelection === 'paper' && computerSelection === 'paper') {
+            you.appendChild(miniPaper);
+            bot.appendChild(miniPaper2);
+        }
+        else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            youCounter++;
+            youWins.textContent = youCounter;
+            you.appendChild(miniPaper);
+            bot.appendChild(miniRock);
+        }
+        else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+            botCounter++;
+            botWins.textContent = botCounter;
+            you.appendChild(miniPaper);
+            bot.appendChild(miniScissors);
+        }
+
+        if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+            you.appendChild(miniScissors);
+            bot.appendChild(miniScissors2);
+        }
+        else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+            botCounter++;
+            botWins.textContent = botCounter;
+            you.appendChild(miniScissors);
+            bot.appendChild(miniRock);
+        }
+        else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+            youCounter++;
+            youWins.textContent = youCounter;
+            you.appendChild(miniScissors);
+            bot.appendChild(miniPaper);
+        }
     }
 }
-
-game();
