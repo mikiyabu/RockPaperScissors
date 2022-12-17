@@ -54,13 +54,15 @@ rock.addEventListener('click', () => {
     let playerSelection = 'rock';
     playRound(playerSelection, getComputerChoice());
 
-    if (youCounter === 5) {
-        you.textContent = 'You win! Booyah!'; 
+    if (youCounter === 3) {
+        you.textContent = 'You win!'; 
         restart.appendChild(playAgain);
+        return;
     }
-    else if (botCounter === 5) { 
-        bot.textContent = 'The bot wins :(';
+    else if (botCounter === 3) { 
+        bot.textContent = 'Bot wins';
         restart.appendChild(playAgain);
+        return;
     }
 });
 
@@ -68,13 +70,15 @@ paper.addEventListener('click', () => {
     let playerSelection = 'paper';
     playRound(playerSelection, getComputerChoice());
 
-    if (youCounter === 5) {
-        you.textContent = 'You win! Booyah!'; 
+    if (youCounter === 3) {
+        you.textContent = 'You win!'; 
         restart.appendChild(playAgain);
+        return;
     }
-    else if (botCounter === 5) {
-        bot.textContent = 'The bot wins :(';
+    else if (botCounter === 3) {
+        bot.textContent = 'Bot wins';
         restart.appendChild(playAgain);
+        return;
     }
 });
 
@@ -82,21 +86,15 @@ scissors.addEventListener('click', () => {
     let playerSelection = 'scissors';
     playRound(playerSelection, getComputerChoice());
 
-    if (youCounter === 5) {
-<<<<<<< HEAD
+    if (youCounter === 3) {
         you.textContent = 'You win'; 
         restart.appendChild(playAgain);
+        return;
     }
-    else if (botCounter === 5) {
-        bot.textContent = 'The bot wins';
-=======
-        you.textContent = 'You win! Booyah!'; 
+    else if (botCounter === 3) {
+        bot.textContent = 'Bot wins';
         restart.appendChild(playAgain);
-    }
-    else if (botCounter === 5) {
-        bot.textContent = 'The bot wins :(';
->>>>>>> 6a68695212b479b12e2811102f344dc7d3731e13
-        restart.appendChild(playAgain);
+        return;
     }
 });
 
@@ -121,7 +119,7 @@ function playRound(playerSelection, computerSelection) {
     you.textContent = 'You: ';
     bot.textContent = 'Bot: ';
     
-    if (youCounter != 5 && botCounter != 5) {
+    if (youCounter != 3 && botCounter != 3) {
         if (playerSelection === 'rock' && computerSelection === 'rock') {
             you.appendChild(miniRock);
             bot.appendChild(miniRock2);
